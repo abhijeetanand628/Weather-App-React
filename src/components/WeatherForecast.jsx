@@ -6,7 +6,7 @@ import sunnyIcon from '../assets/sunny.svg';
 
 const WeatherForecast = () => {
   return (
-    <div className='w-full flex flex-row justify-center gap-4 overflow-x-auto py-4'>
+    <div className='w-full flex flex-row justify-start md:justify-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 overflow-x-auto py-4 px-4 md:px-8 cursor-pointer scrollbar-hide'>
       <ForecastCard day="Tue" icon={partlyCloudyIcon} temperature="22°C" />
       <ForecastCard day="Wed" icon={cloudyIcon} temperature="20°C" />
       <ForecastCard day="Thu" icon={rainyIcon} temperature="16°C" />
