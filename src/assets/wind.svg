@@ -1,0 +1,6 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Three curved wind lines -->
+  <path d="M8 16C12 16 16 18 20 16C24 14 28 16 32 16" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M12 24C16 24 20 26 24 24C28 22 32 24 36 24" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M8 32C12 32 16 34 20 32C24 30 28 32 32 32" stroke="white" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>

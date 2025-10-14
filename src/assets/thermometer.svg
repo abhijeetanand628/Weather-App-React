@@ -1,0 +1,12 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Thermometer outline -->
+  <rect x="22" y="8" width="4" height="24" rx="2" fill="none" stroke="white" stroke-width="2"/>
+  <!-- Rounded top -->
+  <path d="M22 8C22 6.89543 22.8954 6 24 6C25.1046 6 26 6.89543 26 8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <!-- Circular bulb at bottom -->
+  <circle cx="24" cy="36" r="6" fill="none" stroke="white" stroke-width="2"/>
+  <!-- Mercury/liquid inside bulb -->
+  <circle cx="24" cy="36" r="3" fill="white"/>
+  <!-- Degree symbol -->
+  <circle cx="30" cy="12" r="2" fill="white"/>
+</svg>
