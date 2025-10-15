@@ -13,7 +13,7 @@ const temperature = Math.round(weatherData.current.temp_c);
 const humidity = weatherData.current.humidity;
 const windSpeed = weatherData.current.wind_kph;
 const temperatureApparent = Math.round(weatherData.current.feelslike_c) ;
-const locationName = weatherData.location.name + ' , ' + weatherData.location.country;
+const locationName = weatherData.location.name + ' , ' + weatherData.location.region + ' , ' + weatherData.location.country;
 const weatherDescription = weatherData.current.condition['text'] || "Unavailable";
 const date = new Date(weatherData.location.localtime);
 const icon = weatherData.current.condition['icon'];
@@ -24,8 +24,8 @@ const formattedDate = date.toLocaleDateString('en-US', {
 });
 
   return (
-    <div className='w-11/12 md:w-1/2 lg:w-1/3 h-144 min-w-[280px] bg-[#9999FF] rounded-3xl shadow-lg p-8 flex flex-col items-center'>
-      <h1 className='text-white text-4xl font-semibold mb-2'>{locationName}</h1>
+    <div className='w-11/12 md:w-1/2 lg:w-1/3 min-w-[280px] bg-[#9999FF] rounded-3xl shadow-lg p-8 flex flex-col items-center'>
+      <h1 className='text-white text-4xl font-semibold mb-3'>{locationName}</h1>
       <p className='text-white mb-12'>{formattedDate}</p>
       <div className='flex flex-row justify-start items-start gap-4'>
         <h2 className='text-white text-6xl font-light'>{temperature}°C</h2>
@@ -38,7 +38,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
           <p className='text-white text-xl font-semibold'>{weatherDescription}</p>
         </div>
       </div>
-      <div className='flex flex-row gap-4 w-full'>
+      <div className='grid grid-cols-2 gap-4 w-full'>
         <div className='bg-[#C4C6FF] flex-1 h-32 rounded-2xl flex flex-col items-center justify-center gap-3'>
           <img 
             src={humidityIcon}
