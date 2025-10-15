@@ -1,14 +1,14 @@
 import ForecastCard from './ForecastCard';
 
-const WeatherForecast = ({forecastData}) => {
-  if(!forecastData) {
+const WeatherForecast = ({weatherData}) => {
+  if(!weatherData) {
     return null;
   }
 
-  const forecastDays = forecastData.forecast.forecastday;
+  const forecastDays = weatherData.forecast.forecastday;
 
   return (
-    <div className='w-full flex flex-row justify-start md:justify-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 overflow-x-auto py-4 px-4 md:px-8 cursor-pointer scrollbar-hide'>
+    <div className='w-full flex flex-row justify-start md:justify-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 overflow-x-auto py-4 px-4 md:px-8 scrollbar-hide'>
       {forecastDays.map((day) => {
         // Get the day of the week (e.g., "Tue")
         const date = new Date(day.date);

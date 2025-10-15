@@ -34,7 +34,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
         <div className='flex flex-col items-center justify-center mb-12'>
           <img 
             src={icon}
-            alt='sunny weather'
+            alt={weatherDescription ? `${weatherDescription} weather` : 'weather condition'}
             className='w-12 h-12 mb-1'
           />
           <p className='text-white text-xl font-semibold'>{weatherDescription}</p>

@@ -9,7 +9,6 @@
 
       const [cityName, setCityName] = useState('');
       const [weatherData, setWeatherData] = useState(null);
-      const [forecastData, setForecastData] = useState(null);
 
       const apiKey = 'a5c0fae4b7fc460080481110251109';
 
@@ -38,7 +37,6 @@
           let data = await response.json();
           console.log(data);
           setWeatherData(data);
-          setForecastData(data);
         } catch (error) {
           console.log("Failed to fetch the data", error);
         }
@@ -91,7 +89,7 @@
           <>
             <WeatherCard weatherData={weatherData} />
             <div className='w-full flex flex-col items-center gap-2'>
-              <WeatherForecast forecastData={forecastData} />
+              <WeatherForecast weatherData={weatherData} />
               <AirQualityCard weatherData={weatherData} />
             </div>
           </>
