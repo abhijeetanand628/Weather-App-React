@@ -1,4 +1,3 @@
-import sunnyIcon from '../assets/sunny.svg';
 import humidityIcon from '../assets/humidity.svg';
 import windIcon from '../assets/wind.svg';
 import thermometerIcon from '../assets/thermometer.svg';
@@ -17,6 +16,9 @@ const locationName = weatherData.location.name + ' , ' + weatherData.location.re
 const weatherDescription = weatherData.current.condition['text'] || "Unavailable";
 const date = new Date(weatherData.location.localtime);
 const icon = weatherData.current.condition['icon'];
+const todayForecast = weatherData.forecast.forecastday[0];
+const sunrise = todayForecast.astro.sunrise;
+const sunset = todayForecast.astro.sunset;
 const formattedDate = date.toLocaleDateString('en-US', {
   weekday: 'long',
   month: 'long',
@@ -83,11 +85,11 @@ const formattedDate = date.toLocaleDateString('en-US', {
           <div className='flex flex-col items-center'>
             <div className='flex flex-row gap-4 text-center'>
               <div>
-                <p className='text-white text-sm font-semibold'>5:42 AM</p>
+                <p className='text-white text-sm font-semibold'>{sunrise}</p>
                 <p className='text-white text-xs font-semibold'>Sunrise</p>
               </div>
               <div>
-                <p className='text-white text-sm font-semibold'>6:32 PM</p>
+                <p className='text-white text-sm font-semibold'>{sunset}</p>
                 <p className='text-white text-xs font-semibold'>Sunset</p>
               </div>
             </div>

@@ -1,23 +1,28 @@
 import ForecastCard from './ForecastCard';
-import partlyCloudyIcon from '../assets/partly-cloudy.svg';
-import cloudyIcon from '../assets/cloudy.svg';
-import rainyIcon from '../assets/rainy.svg';
-import sunnyIcon from '../assets/sunny.svg';
-import { useState } from 'react';
 
-const WeatherForecast = () => {
+const WeatherForecast = ({forecastData}) => {
+  if(!forecastData) {
+    return null;
+  }
 
-  const [day, setDay] = useState('');
-  const [temperature, setTemperature] = useState('');
-  const [icon, setIcon] = useState('');
+  const forecastDays = forecastData.forecast.forecastday;
 
   return (
     <div className='w-full flex flex-row justify-start md:justify-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 overflow-x-auto py-4 px-4 md:px-8 cursor-pointer scrollbar-hide'>
-      <ForecastCard day="Tue" icon={partlyCloudyIcon} temperature="22°C" />
-      <ForecastCard day="Wed" icon={cloudyIcon} temperature="20°C" />
-      <ForecastCard day="Thu" icon={rainyIcon} temperature="16°C" />
-      <ForecastCard day="Fri" icon={partlyCloudyIcon} temperature="23°C" />
-      <ForecastCard day="Sat" icon={sunnyIcon} temperature="25°C" />
+      {forecastDays.map((day) => {
+        // Get the day of the week (e.g., "Tue")
+        const date = new Date(day.date);
+        const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'short' });
+
+        return (
+          <ForecastCard
+            key={day.date_epoch}
+            day={dayOfWeek}
+            icon={day.day.condition.icon}
+            temperature={`${Math.round(day.day.maxtemp_c)}°C / ${Math.round(day.day.mintemp_c)}°C`}
+          />
+        );
+      })}
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import airQualityIcon from '../assets/air-quality.svg';
 
 const AirQualityCard = ({weatherData}) => {
