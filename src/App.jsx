@@ -9,6 +9,7 @@
 
       const [cityName, setCityName] = useState('');
       const [weatherData, setWeatherData] = useState(null);
+      const [error, setError] = useState('');
 
       const apiKey = 'a5c0fae4b7fc460080481110251109';
 
@@ -32,13 +33,19 @@
           return;
 
         try {
+          setError('');
           let url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=yes&alerts=no`;
           let response = await fetch(url);
+          if (!response.ok) {
+            throw new Error('Failed to fetch the data');
+          }
           let data = await response.json();
           console.log(data);
           setWeatherData(data);
         } catch (error) {
           console.log("Failed to fetch the data", error);
+          setWeatherData(null);
+          setError('Failed to fetch the data. Please check the city name and try again.');
         }
       }
 
@@ -85,6 +92,11 @@
             className='absolute right-10 sm:right-6 top-1/2 transform -translate-y-1/2 w-5 h-5 sm:w-6 sm:h-6 cursor-pointer'
           />
         </div>
+        {error && (
+          <p className='text-red-200 bg-red-600/40 border border-red-400 rounded-lg px-4 py-2 mt-2 w-11/12 sm:w-96 md:w-[30rem] text-sm'>
+            {error}
+          </p>
+        )}
         {weatherData && (
           <>
             <WeatherCard weatherData={weatherData} />

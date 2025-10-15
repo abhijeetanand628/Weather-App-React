@@ -12,7 +12,7 @@ const temperature = Math.round(weatherData.current.temp_c);
 const humidity = weatherData.current.humidity;
 const windSpeed = weatherData.current.wind_kph;
 const temperatureApparent = Math.round(weatherData.current.feelslike_c) ;
-const locationName = weatherData.location.name + ' , ' + weatherData.location.region + ' , ' + weatherData.location.country;
+const locationName = weatherData.location.name + ', ' + weatherData.location.region + ', ' + weatherData.location.country;
 const weatherDescription = weatherData.current.condition['text'] || "Unavailable";
 const date = new Date(weatherData.location.localtime);
 const icon = weatherData.current.condition['icon'];
@@ -59,7 +59,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
             className='w-6 h-6'
           />
           <div className='flex flex-col items-center'>
-            <p className='text-white text-xl font-semibold mb-2'>{windSpeed}km/h</p>
+            <p className='text-white text-xl font-semibold mb-2'>{windSpeed} km/h</p>
             <p className='text-white'>Wind Speed</p>
           </div>
         </div>

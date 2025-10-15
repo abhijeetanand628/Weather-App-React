@@ -4,7 +4,7 @@ const AirQualityCard = ({weatherData}) => {
   if(!weatherData)
     return null;
 
-  const AQI = weatherData.current.air_quality['us-epa-index'];
+  const AQI = Math.round(weatherData.current.air_quality['us-epa-index']);
   // Map US EPA index (1-6) to category label and color
   const aqiMap = {
     1: { label: 'Good', color: 'bg-green-500' },
